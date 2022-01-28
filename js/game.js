@@ -17,12 +17,21 @@ class Game {
         // this.sound.stop() etc...
         //background.init()
     }
+    checkCollisions() {
+        let collisions = false;
+        //some() returns true or false if your logical condition verifies for at least 1 element of the array
+        if( this.obstacles.objects.some( obstacle=> this.player.collideWith(obstacle)) ) collisions = true
+
+         if( this.player.exitsCanvas()) collisions = true
+
+    return collisions
+  }
 
     play(){
         this.frameNumber += 1;
         this.move();
         this.draw();
-        this.checkCollision();
+        this.checkCollisions();
         this.ctx.clearRect(0,0,ctx.width, ctx.height);
         requestAnimationFrame( this.play.bind(this) );// bind is because we are using canonical syntax, it tells to run not in the global object
     }
@@ -39,13 +48,5 @@ class Game {
         this.player.draw(this.frameNumber)
     }
 
-    checkCollisions() {
-        let collisions = false;
-        //some() returns true or false if your logical condition verifies for at least 1 element of the array
-        if( this.obstacles.objects.some( obstacle=> this.player.collideWith(obstacle)) ) collisions = true
-
-         if( this.player.exitsCanvas()) collisions = true
-
-    return collisions
-  }
+    
 }

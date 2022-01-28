@@ -26,7 +26,7 @@ class Player {
             )
     }
 
-    existsCanvas() {
+    exitsCanvas() {
         return this.y > this.ctx.canvas.height || this.y + this.height < 0;
     }
 }
