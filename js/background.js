@@ -6,7 +6,7 @@ class Background {
             width: this.ctx.canvas.width,
             height: 79,
             x: 0,
-            y: ctx.canvas.height - 79,
+            y: this.ctx.canvas.height - 79,
             vx: -3, //velocity
             vy: 0
         }
@@ -22,6 +22,13 @@ class Background {
             vy: 0
         }
         this.backgroundFar.img.src = "/images/bg-far.png"
+    }
+
+    init() {
+        this.backgroundFar.x = 0
+        this.backgroundFar.y = -79
+        this.backgroundFront.x = 0
+        this.backgroundFront.y = this.ctx.canvas.height - 79
     }
 
     move(frameNumber) {

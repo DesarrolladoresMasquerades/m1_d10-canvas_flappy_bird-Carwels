@@ -9,7 +9,8 @@ const ctx = canvas.getContext("2d")
 
   const startButton = document.getElementById("start-button")
   startButton.onclick = () => {
-     startButton.remove()
+     startButton.textContent = "Play Again"
+     startButton.blur()
      game.start()
    };
 
